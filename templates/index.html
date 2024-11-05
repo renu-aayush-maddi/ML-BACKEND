@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDoS Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        h3 {
+            text-align: center;
+            color: #007BFF;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #ffa500;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DDoS Prediction</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="https://renuaayush-portfolio.netlify.app/" target="_blank">Portfolio</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <form action='/predict' method="POST">
+            <label for="bwd_packet_length_mean">Bwd Packet Length Mean:</label>
+            <input type='text' name='bwd_packet_length_mean' required>
+            
+            <label for="bwd_packet_length_max">Bwd Packet Length Max:</label>
+            <input type='text' name='bwd_packet_length_max' required>
+            
+            <label for="bwd_packet_length_std">Bwd Packet Length Std:</label>
+            <input type='text' name='bwd_packet_length_std' required>
+            
+            <label for="avg_bwd_segment_size">Avg Bwd Segment Size:</label>
+            <input type='text' name='avg_bwd_segment_size' required>
+            
+            <h3>Predicted Label: {{ result }}</h3>
+            
+            <input type='submit' value='Predict'>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 M.RENU_AAYUSH. All Rights Reserved. | <a href="https://renuaayush-portfolio.netlify.app/" target="_blank">Visit my Portfolio</a></p>
+    </footer>
+</body>
+</html>

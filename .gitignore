@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+.env
+*.sav  # if you have other large model files you don't want to track
